@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="cBean" class="com.powernode.spring6.beans.C" c:name="你好" c:age="19" c:birth-ref="birthBean2" />
+    <bean id="birthBean2" class="java.util.Date"/>
+</beans>

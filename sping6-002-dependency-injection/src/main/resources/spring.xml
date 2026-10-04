@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDaoBean" class="com.powernode.spring6.dao.UserDao"/>
+
+    <bean id="userServiceBean" class="com.powernode.spring6.service.UserService">
+        <property name="userDao" ref = "userDaoBean"/>
+    </bean>
+    <!--jdbc-->
+    <bean id="dataSource" class="com.powernode.spring6.jdbc.MyDataSource">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+
+    <!--Arrays-->
+    <bean id = "n1" class="com.powernode.spring6.beans.Arrays2">
+        <property name="name" value="周杰伦"/>
+    </bean>
+    <bean id = "n2" class="com.powernode.spring6.beans.Arrays2">
+        <property name="name" value="杰伦"/>
+    </bean>
+    <bean id = "n3" class="com.powernode.spring6.beans.Arrays2">
+        <property name="name" value="伦"/>
+    </bean>
+
+    <bean id = "music" class="com.powernode.spring6.beans.Arrays">
+        <property name="muiscs">
+            <array>
+                <value>晴天</value>
+                <value>花海</value>
+                <value>安静</value>
+            </array>
+        </property>
+        <property name="arrays2s">
+            <array>
+                <ref bean="n1"/>
+                <ref bean="n2"/>
+                <ref bean="n3"/>
+            </array>
+        </property>
+    </bean>
+
+    <!--List-->
+    <bean id="peopleBean" class="com.powernode.spring6.beans.List_people">
+        <property name="name">
+            <list>
+                <value>张无忌</value>
+                <value>张无忌</value>
+                <value>无忌</value>
+                <value>忌</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Set-->
+    <bean id="setBean" class="com.powernode.spring6.beans.Set_phone">
+        <property name="phone">
+            <set>
+                <!--非简单类型可以使用ref，简单类型使用value-->
+                <value>110</value>
+                <value>110</value>
+                <value>130</value>
+                <value>140</value>
+                <value>120</value>
+            </set>
+        </property>
+    </bean>
+
+    <!--Set-->
+    <bean id = "mapBean" class="com.powernode.spring6.beans.Map_address">
+        <property name="ads">
+            <map>
+                <entry key="1" value="安徽"/>
+                <entry key="2" value="合肥"/>
+                <entry key="3" value="蚌埠"/>
+            </map>
+        </property>
+    </bean>
+
+    <!--Set-->
+    <bean id="propertiesBean" class="com.powernode.spring6.beans.Properties_jdbc">
+        <property name="properties">
+            <props>
+                <prop key="drive">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/spring</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
