@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="husbandBean" class="com.poweenode.spring6.bean.Husband">
+        <property name="name" value="张无忌"/>
+        <property name="wife" ref="wifeBean"/>
+    </bean>
+
+    <bean id="wifeBean" class="com.poweenode.spring6.bean.Wife">
+        <property name="name" value="小鱼"/>
+        <property name="husband" ref="husbandBean"/>
+    </bean>
+</beans>

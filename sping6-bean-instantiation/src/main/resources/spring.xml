@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="sb" class="com.powernode.spring6.bean.SpringBean"/>
+
+    <bean id="star" class="com.powernode.spring6.bean.StarFactory" factory-method="get"/>
+
+    <bean id="gunFactory" class="com.powernode.spring6.bean.GunFactory"/><!--创建对象出来-->
+    <bean id="gun" factory-bean="gunFactory" factory-method="get"/><!--factory-bean告诉spring调用哪个对象，
+    factory-method告诉spring调用该对象的哪个方法-->
+
+    <bean id="person" class="com.powernode.spring6.bean.PersonFactoryBean"/>
+</beans>
